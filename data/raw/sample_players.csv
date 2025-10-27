@@ -1,0 +1,4 @@
+player_id,name,position,height,weight,eligibility_remaining,current_program,conference,stat_completion_percentage,stat_yards_per_attempt,stat_yards_per_carry,stat_yards_per_route_run,instagram_followers,twitter_followers,snaps_played,games_played,team_wins,team_losses
+QB001,John Smith,QB,75,215,2,Texas,SEC,67.5,8.2,,,125000,85000,750,12,9,3
+RB001,Mike Johnson,RB,70,205,3,Alabama,SEC,,,5.8,,85000,45000,680,11,11,1
+WR001,Chris Williams,WR,73,190,1,Ohio State,Big Ten,,,,2.5,200000,150000,720,12,10,2

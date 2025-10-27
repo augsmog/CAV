@@ -1,0 +1,74 @@
+# College Athlete Valuation - Configuration Template
+# Copy this file to config.yaml and fill in your API keys
+
+# collegefootballdata.com API Configuration
+collegefootballdata:
+  api_key: "YOUR_API_KEY_HERE"
+  base_url: "https://api.collegefootballdata.com"
+  rate_limit_per_minute: 60  # Free tier limit
+
+# Database Configuration
+database:
+  type: "sqlite"  # Options: sqlite, postgresql
+  sqlite:
+    path: "database/cav_data.db"
+  postgresql:  # For future production use
+    host: "localhost"
+    port: 5432
+    database: "cav_db"
+    user: "cav_user"
+    password: "YOUR_PASSWORD_HERE"
+
+# Social Media API Keys (Optional - for enhanced brand data)
+social_media:
+  twitter:
+    api_key: ""
+    api_secret: ""
+    bearer_token: ""
+  instagram:
+    access_token: ""
+
+# Data Collection Settings
+data_collection:
+  # How often to refresh data (in hours)
+  refresh_intervals:
+    player_stats: 24        # Daily
+    rosters: 168           # Weekly
+    transfers: 6           # Every 6 hours during portal season
+    social_media: 72       # Every 3 days
+  
+  # Seasons to collect data for
+  seasons:
+    start_year: 2020
+    current_year: 2024
+  
+  # Position groups to track
+  positions:
+    - QB
+    - RB
+    - WR
+    - TE
+    - OL
+    - DL
+    - LB
+    - CB
+    - S
+
+# Web Scraping Settings
+scraping:
+  user_agent: "CAV-Research-Bot/1.0"
+  request_delay: 2  # Seconds between requests
+  timeout: 30       # Request timeout in seconds
+  retry_attempts: 3
+
+# Data Quality Thresholds
+data_quality:
+  minimum_games_played: 1
+  minimum_snaps: 50
+  flag_missing_fields: true
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/data_collection.log"
+

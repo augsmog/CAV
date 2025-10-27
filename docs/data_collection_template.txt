@@ -1,0 +1,127 @@
+
+# Data Collection Template
+
+## Player Profile Data
+
+### Required Fields
+- player_id: Unique identifier
+- name: Player name
+- position: QB, RB, WR, TE, OL, DL, LB, CB, S
+- height: Height in inches
+- weight: Weight in pounds
+- eligibility_remaining: Years of eligibility (1-4)
+- current_program: Current school
+- conference: Conference name
+
+### Performance Stats (Position-Dependent)
+**Quarterbacks:**
+- stat_completion_percentage
+- stat_yards_per_attempt
+- stat_td_int_ratio
+- stat_qbr
+- stat_success_rate
+- stat_epa_per_play
+
+**Running Backs:**
+- stat_yards_per_carry
+- stat_yards_after_contact
+- stat_success_rate
+- stat_receiving_grade
+- stat_epa_per_play
+
+**Wide Receivers:**
+- stat_yards_per_route_run
+- stat_catch_rate
+- stat_yards_after_catch
+- stat_contested_catch_rate
+- stat_separation_score
+- stat_drop_rate
+
+### Brand/Social Media
+- instagram_followers
+- twitter_followers
+- tiktok_followers
+- engagement_rate (decimal, e.g., 0.045 for 4.5%)
+- follower_growth_rate (monthly, decimal)
+- google_search_volume (monthly searches)
+- media_mentions_monthly
+- national_media_coverage (True/False)
+
+### Skills (1-10 scale, position-dependent)
+**QB Skills:**
+- skill_arm_strength
+- skill_accuracy_short
+- skill_accuracy_medium
+- skill_accuracy_deep
+- skill_decision_making
+- skill_mobility
+- skill_pocket_presence
+
+**RB Skills:**
+- skill_power
+- skill_speed
+- skill_agility
+- skill_vision
+- skill_receiving
+- skill_pass_blocking
+
+### Context Data
+- snaps_played
+- games_played
+- games_started
+- team_wins
+- team_losses
+- team_total_snaps
+- depth_chart_position (1, 2, 3)
+- is_starter (True/False)
+- pff_grade (0-100)
+
+### Optional But Helpful
+- injury_history (JSON list)
+- controversies (count)
+- personality_rating (1-10)
+- media_skills_rating (1-10)
+- community_engagement_hours
+
+## Transfer Portal Data
+
+### Required Fields
+- player_id: Match to player profile
+- transfer_date: YYYY-MM-DD format
+- from_program: Previous school
+- to_program: New school
+
+### Optional Fields
+- nil_deal_value: Reported NIL deal value
+- reported_finalists: Comma-separated list of schools
+- decision_timeline_days: Days from portal entry to commitment
+- first_season_snaps: Snaps in first season at new school
+- first_season_performance_grade: PFF grade or similar
+- immediate_starter: True/False
+
+## Data Sources
+
+### Statistics
+- Sports-Reference (college football)
+- Pro Football Focus (PFF grades)
+- ESPN/247Sports (team stats)
+- Conference websites (official stats)
+
+### Brand/Social
+- Social media platforms (direct follower counts)
+- Google Trends (search volume)
+- On3 NIL Valuation (NIL estimates)
+- Media monitoring services
+
+### Transfer Portal
+- On3 Transfer Portal Tracker
+- 247Sports Transfer Portal
+- Rivals Transfer Tracker
+- Official school announcements
+
+## Data Quality Checks
+1. Verify player positions match scheme analysis needs
+2. Ensure stats align with position (QB stats for QBs, etc.)
+3. Check for outliers in social media metrics
+4. Validate transfer dates and programs
+5. Cross-reference NIL values when available
