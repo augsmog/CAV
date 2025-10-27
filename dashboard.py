@@ -24,11 +24,15 @@ from database.models import Player, Team, PerformanceStat, Transfer
 # ============================================================================
 
 st.set_page_config(
-    page_title="CFB Market Intelligence",
-    page_icon="🏈",
+    page_title="CAV - Multi-Sport Intelligence",
+    page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Initialize sport selection in session state
+if 'sport' not in st.session_state:
+    st.session_state.sport = 'football'
 
 # ============================================================================
 # UNTITLED UI DESIGN SYSTEM
@@ -514,6 +518,45 @@ st.sidebar.markdown(f"""
     <p style="color: {COLORS['gray_500']}; font-size: 0.875rem;">Transfer Intelligence Platform</p>
 </div>
 """, unsafe_allow_html=True)
+
+# ============================================================================
+# SPORT SWITCHER
+# ============================================================================
+
+st.sidebar.markdown("""
+<div style="text-align: center; padding: 1rem 0 0.5rem 0;">
+    <h2 style="font-size: 1.5rem; font-weight: 700; color: #1e293b;">CAV Platform</h2>
+    <p style="font-size: 0.75rem; color: #64748b;">Multi-Sport Valuation</p>
+</div>
+""", unsafe_allow_html=True)
+
+# Sport Toggle Buttons
+col1, col2 = st.sidebar.columns(2)
+
+with col1:
+    football_type = "primary" if st.session_state.sport == 'football' else "secondary"
+    if st.button("🏈 Football", key="btn_football", use_container_width=True, type=football_type):
+        st.session_state.sport = 'football'
+        st.rerun()
+
+with col2:
+    basketball_type = "primary" if st.session_state.sport == 'basketball' else "secondary"
+    if st.button("🏀 Basketball", key="btn_basketball", use_container_width=True, type=basketball_type):
+        st.session_state.sport = 'basketball'
+        st.rerun()
+
+# Current Sport Indicator
+sport_color = '#15803d' if st.session_state.sport == 'basketball' else '#1d4ed8'
+sport_bg = '#f0fdf4' if st.session_state.sport == 'basketball' else '#eff6ff'
+st.sidebar.markdown(f"""
+<div style="text-align: center; margin: 0.75rem 0 1rem 0; padding: 0.5rem; background: {sport_bg}; border-radius: 6px; border: 2px solid {sport_color};">
+    <p style="margin: 0; font-size: 0.875rem; font-weight: 700; color: {sport_color}; text-transform: uppercase;">
+        {st.session_state.sport} MODE {'🏈' if st.session_state.sport == 'football' else '🏀'}
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+st.sidebar.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
 # Check if viewing player detail
 if 'view_player_detail' in st.session_state and st.session_state.view_player_detail:
