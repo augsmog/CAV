@@ -710,7 +710,8 @@ elif page == "👥 Player Database":
                 st.metric("Avg Value", f"${filtered_df[value_col].mean()/1e3:.0f}K")
         with col3:
             if not filtered_df.empty:
-                st.metric("Total Value", f"${filtered_df['total_score'].sum()/1e6:.1f}M")
+                value_col = 'player_value' if 'player_value' in filtered_df.columns else 'total_score'
+                st.metric("Total Value", f"${filtered_df[value_col].sum()/1e6:.1f}M")
         
         st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
         
