@@ -306,8 +306,61 @@ def transform_stats_for_model(player, stats, team_name):
             'blocking': 6.5 if position == 'TE' else 5.5,
         }
     
+    elif position in ['DL', 'DT', 'DE', 'LB', 'ILB', 'OLB', 'CB', 'S', 'DB'] and stats.defensive_stats:
+        # Handle defensive positions
+        defensive = stats.defensive_stats if isinstance(stats.defensive_stats, dict) else {}
+        
+        # Parse defensive stats (from API format - they use capitalized stat names)
+        tackles = defensive.get('TOT', defensive.get('tackles', 0)) or 0
+        solo = defensive.get('SOLO', defensive.get('solo_tackles', 0)) or 0
+        sacks = defensive.get('SACKS', defensive.get('sacks', 0)) or 0
+        tfl = defensive.get('TFL', defensive.get('tackles_for_loss', 0)) or 0
+        qb_hur = defensive.get('QB HUR', defensive.get('qb_hurries', 0)) or 0
+        # Try both 'passes_defended' (DB field) and 'passes_deflected' (calculator expects)
+        pd = defensive.get('PD', defensive.get('passes_deflected', defensive.get('passes_defended', 0))) or 0
+        ints = defensive.get('INT', defensive.get('interceptions', 0)) or 0
+        def_td = defensive.get('TD', defensive.get('defensive_touchdowns', 0)) or 0
+        
+        adapted_data['stats'] = {
+            'tackles': tackles,
+            'solo_tackles': solo,
+            'sacks': sacks,
+            'tackles_for_loss': tfl,
+            'qb_hurries': qb_hur,
+            'passes_deflected': pd,  # Calculator looks for this key
+            'passes_defended': pd,    # Also provide this for compatibility
+            'interceptions': ints if ints else 0,  # Ensure 0 instead of None
+            'defensive_touchdowns': def_td if def_td else 0,
+        }
+        
+        # Position-specific skills
+        if position in ['DL', 'DT', 'DE']:
+            adapted_data['skills'] = {
+                'pass_rush': 7.5 if sacks >= 5 else 6.5,
+                'run_defense': 7.0,
+                'power': 7.5,
+                'technique': 7.0,
+                'motor': 7.5,
+            }
+        elif position in ['LB', 'ILB', 'OLB']:
+            adapted_data['skills'] = {
+                'tackling': 7.5 if tackles >= 80 else 7.0,
+                'coverage': 7.0 if pd >= 3 else 6.0,
+                'blitzing': 7.0 if sacks >= 3 else 6.0,
+                'instincts': 7.5,
+                'run_defense': 7.5,
+            }
+        else:  # DB, CB, S
+            adapted_data['skills'] = {
+                'coverage': 7.5 if pd >= 8 else 7.0,
+                'ball_skills': 7.5 if ints >= 3 else 6.5,
+                'tackling': 7.0,
+                'speed': 7.5,
+                'instincts': 7.0,
+            }
+    
     else:
-        # Generic stats for other positions
+        # Generic stats for other positions (fallback)
         adapted_data['stats'] = {
             'tackles': 50,
             'tackles_for_loss': 5,

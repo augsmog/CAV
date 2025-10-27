@@ -263,12 +263,18 @@ class PlayerValuationEngineV4WAR:
 
 def create_valuation_engine_v4_war():
     """Factory function for V4 WAR-driven engine"""
-    from models.performance import PerformanceCalculator
+    # Try to use all-positions calculator first, fall back to original if not available
+    try:
+        from models.performance_all_positions import AllPositionsPerformanceCalculator
+        performance_calc = AllPositionsPerformanceCalculator()
+    except ImportError:
+        from models.performance import PerformanceCalculator
+        performance_calc = PerformanceCalculator()
+    
     from models.scheme_fit import SchemeFitCalculator
     from models.brand_valuation import BrandValuationCalculator
     from models.cfb_war_calculator import CFBWARCalculator
     
-    performance_calc = PerformanceCalculator()
     scheme_calc = SchemeFitCalculator()
     brand_calc = BrandValuationCalculator()
     war_calc = CFBWARCalculator()

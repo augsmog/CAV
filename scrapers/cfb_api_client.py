@@ -353,7 +353,7 @@ class CollegeFootballDataAPI:
         """
         all_stats = {}
         
-        categories = ['passing', 'rushing', 'receiving', 'defense', 'kicking']
+        categories = ['passing', 'rushing', 'receiving', 'defensive', 'kicking']
         
         for category in categories:
             try:
