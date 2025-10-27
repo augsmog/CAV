@@ -308,7 +308,7 @@ def show_player_detail(player_data):
             <div>
                 <p class="text-sm">OVERALL SCORE</p>
                 <div class="score-display">
-                    <span class="score-number">{player_data['total_score']/1e6:.2f}M</span>
+                    <span class="score-number">{player_data.get('player_value', player_data.get('total_score', 0))/1e6:.2f}M</span>
                 </div>
             </div>
             <div>
@@ -556,8 +556,10 @@ if page == "🏠 Market Overview":
     col1, col2, col3, col4 = st.columns(4)
     
     if not valuations_df.empty:
-        total_value = valuations_df['total_score'].sum()
-        avg_value = valuations_df['total_score'].mean()
+        # Handle both V3 (total_score) and V4 (player_value) data
+        value_col = 'player_value' if 'player_value' in valuations_df.columns else 'total_score'
+        total_value = valuations_df[value_col].sum()
+        avg_value = valuations_df[value_col].mean()
         total_players = len(valuations_df)
         portal_count = len(portal_ids)
         
@@ -604,7 +606,8 @@ if page == "🏠 Market Overview":
         
         with col1:
             st.markdown('<h2 class="section-header">Market Value by Position</h2>', unsafe_allow_html=True)
-            position_values = valuations_df.groupby('position')['total_score'].sum().sort_values(ascending=False)
+            value_col = 'player_value' if 'player_value' in valuations_df.columns else 'total_score'
+            position_values = valuations_df.groupby('position')[value_col].sum().sort_values(ascending=False)
             
             fig = px.bar(
                 x=position_values.values / 1e6,
@@ -626,7 +629,8 @@ if page == "🏠 Market Overview":
             position_counts = valuations_df['position'].value_counts()
             for pos in position_counts.head(8).index:
                 count = position_counts[pos]
-                avg_val = valuations_df[valuations_df['position'] == pos]['total_score'].mean() / 1e3
+                value_col = 'player_value' if 'player_value' in valuations_df.columns else 'total_score'
+                avg_val = valuations_df[valuations_df['position'] == pos][value_col].mean() / 1e3
                 st.markdown(f"""
                 <div style="margin: 1rem 0; padding: 1rem; background: white; border-radius: 8px; border: 1px solid {COLORS['gray_200']};">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -682,13 +686,15 @@ elif page == "👥 Player Database":
         if selected_team != 'All':
             filtered_df = filtered_df[filtered_df['team'] == selected_team]
         if min_value > 0:
-            filtered_df = filtered_df[filtered_df.get('player_value', filtered_df['total_score']) >= (min_value * 1000)]
+            value_col = 'player_value' if 'player_value' in filtered_df.columns else 'total_score'
+            filtered_df = filtered_df[filtered_df[value_col] >= (min_value * 1000)]
         
         # Sort
+        value_col = 'player_value' if 'player_value' in filtered_df.columns else 'total_score'
         if sort_option == "Value (High-Low)":
-            filtered_df = filtered_df.sort_values('total_score', ascending=False)
+            filtered_df = filtered_df.sort_values(value_col, ascending=False)
         elif sort_option == "Value (Low-High)":
-            filtered_df = filtered_df.sort_values('total_score', ascending=True)
+            filtered_df = filtered_df.sort_values(value_col, ascending=True)
         elif sort_option == "Name":
             filtered_df = filtered_df.sort_values('player')
         else:
@@ -995,7 +1001,7 @@ elif page == "🏫 Team Rankings":
     
     if not valuations_df.empty:
         team_values = valuations_df.groupby('team').agg({
-            'total_score': ['sum', 'mean', 'count']
+            value_col: ['sum', 'mean', 'count']
         }).reset_index()
         team_values.columns = ['team', 'total_value', 'avg_value', 'player_count']
         team_values = team_values.sort_values('total_value', ascending=False).reset_index(drop=True)
@@ -1054,7 +1060,7 @@ elif page == "🔄 Transfer Portal":
                         </div>
                     </div>
                     <div style="text-align: right;">
-                        <p class="market-value">${row['total_score']/1e6:.2f}M</p>
+                        <p class="market-value">${row.get('player_value', row.get('total_score', 0))/1e6:.2f}M</p>
                         <p style="font-size: 0.875rem; color: {COLORS['gray_500']};">
                             Performance: {row.get('performance_score', 0):.0f} | 
                             Fit: {row.get('scheme_fit_score', 0):.0f}
@@ -1074,11 +1080,12 @@ elif page == "💎 Value Opportunities":
     
     if not valuations_df.empty:
         # Calculate value efficiency
-        valuations_df['efficiency'] = valuations_df['performance_score'] / (valuations_df['total_score'] / 1e6)
+        value_col = 'player_value' if 'player_value' in valuations_df.columns else 'total_score'
+        valuations_df['efficiency'] = valuations_df['performance_score'] / (valuations_df[value_col] / 1e6)
         
         gems = valuations_df[
             (valuations_df['performance_score'] > 60) &
-            (valuations_df['total_score'] < 1000000)
+            (valuations_df[value_col] < 1000000)
         ].sort_values('efficiency', ascending=False)
         
         col1, col2, col3 = st.columns(3)
@@ -1089,7 +1096,8 @@ elif page == "💎 Value Opportunities":
                 st.metric("Avg Performance", f"{gems['performance_score'].mean():.1f}")
         with col3:
             if not gems.empty:
-                st.metric("Avg Value", f"${gems['total_score'].mean()/1e3:.0f}K")
+                value_col = 'player_value' if 'player_value' in gems.columns else 'total_score'
+                st.metric("Avg Value", f"${gems[value_col].mean()/1e3:.0f}K")
         
         st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
         
@@ -1109,7 +1117,7 @@ elif page == "💎 Value Opportunities":
                         {f'<span class="portal-badge">IN PORTAL</span>' if in_portal else ''}
                     </div>
                     <div style="text-align: right;">
-                        <p style="font-weight: 700; font-size: 1.5rem; color: {COLORS['success']};">${row['total_score']/1e6:.2f}M</p>
+                        <p style="font-weight: 700; font-size: 1.5rem; color: {COLORS['success']};">${row.get('player_value', row.get('total_score', 0))/1e6:.2f}M</p>
                         <p style="font-size: 0.875rem; color: {COLORS['gray_500']};">
                             Performance: {row['performance_score']:.1f} | 
                             Efficiency: {row['efficiency']:.1f}
