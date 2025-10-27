@@ -1,0 +1,353 @@
+{
+  "scraped_at": "2025-10-27T09:14:15.326277",
+  "source": "nil-ncaa.com + research",
+  "count": 41,
+  "statistics": {
+    "total_teams": 31,
+    "average_budget": 11500000.0,
+    "median_budget": 12000000,
+    "max_budget": 20000000,
+    "min_budget": 4000000,
+    "total_nil_spending": 356500000
+  },
+  "data": [
+    {
+      "team": "Texas",
+      "conference": "SEC",
+      "nil_budget": 20000000,
+      "tier": "Elite",
+      "scraped_at": "2025-10-27T09:14:15.273938",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Texas A&M",
+      "conference": "SEC",
+      "nil_budget": 18000000,
+      "tier": "Elite",
+      "scraped_at": "2025-10-27T09:14:15.273945",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Alabama",
+      "conference": "SEC",
+      "nil_budget": 17000000,
+      "tier": "Elite",
+      "scraped_at": "2025-10-27T09:14:15.273947",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Georgia",
+      "conference": "SEC",
+      "nil_budget": 16000000,
+      "tier": "Elite",
+      "scraped_at": "2025-10-27T09:14:15.273948",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "LSU",
+      "conference": "SEC",
+      "nil_budget": 15000000,
+      "tier": "Elite",
+      "scraped_at": "2025-10-27T09:14:15.273949",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Florida",
+      "conference": "SEC",
+      "nil_budget": 14000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273950",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Tennessee",
+      "conference": "SEC",
+      "nil_budget": 13000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273951",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Auburn",
+      "conference": "SEC",
+      "nil_budget": 12000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273951",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Ole Miss",
+      "conference": "SEC",
+      "nil_budget": 12000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273952",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Arkansas",
+      "conference": "SEC",
+      "nil_budget": 11000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273953",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Ohio State",
+      "conference": "Big Ten",
+      "nil_budget": 16000000,
+      "tier": "Elite",
+      "scraped_at": "2025-10-27T09:14:15.273954",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Michigan",
+      "conference": "Big Ten",
+      "nil_budget": 14000000,
+      "tier": "Elite",
+      "scraped_at": "2025-10-27T09:14:15.273955",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Penn State",
+      "conference": "Big Ten",
+      "nil_budget": 13000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273955",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "USC",
+      "conference": "Big Ten",
+      "nil_budget": 12000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273956",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Oregon",
+      "conference": "Big Ten",
+      "nil_budget": 12000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273957",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Nebraska",
+      "conference": "Big Ten",
+      "nil_budget": 11000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273958",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Wisconsin",
+      "conference": "Big Ten",
+      "nil_budget": 10000000,
+      "tier": "Medium",
+      "scraped_at": "2025-10-27T09:14:15.273958",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Iowa",
+      "conference": "Big Ten",
+      "nil_budget": 9000000,
+      "tier": "Medium",
+      "scraped_at": "2025-10-27T09:14:15.273964",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Oklahoma",
+      "conference": "Big 12",
+      "nil_budget": 13000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273965",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Texas Tech",
+      "conference": "Big 12",
+      "nil_budget": 11000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273965",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Oklahoma State",
+      "conference": "Big 12",
+      "nil_budget": 9000000,
+      "tier": "Medium",
+      "scraped_at": "2025-10-27T09:14:15.273966",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "TCU",
+      "conference": "Big 12",
+      "nil_budget": 8500000,
+      "tier": "Medium",
+      "scraped_at": "2025-10-27T09:14:15.273967",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Kansas State",
+      "conference": "Big 12",
+      "nil_budget": 7500000,
+      "tier": "Medium",
+      "scraped_at": "2025-10-27T09:14:15.273967",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Miami",
+      "conference": "ACC",
+      "nil_budget": 12000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273968",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Clemson",
+      "conference": "ACC",
+      "nil_budget": 11000000,
+      "tier": "High",
+      "scraped_at": "2025-10-27T09:14:15.273969",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Florida State",
+      "conference": "ACC",
+      "nil_budget": 10000000,
+      "tier": "Medium",
+      "scraped_at": "2025-10-27T09:14:15.273970",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "North Carolina",
+      "conference": "ACC",
+      "nil_budget": 9000000,
+      "tier": "Medium",
+      "scraped_at": "2025-10-27T09:14:15.273970",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "NC State",
+      "conference": "ACC",
+      "nil_budget": 7500000,
+      "tier": "Medium",
+      "scraped_at": "2025-10-27T09:14:15.273971",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Boise State",
+      "conference": "Mountain West",
+      "nil_budget": 4000000,
+      "tier": "Low",
+      "scraped_at": "2025-10-27T09:14:15.273972",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "SMU",
+      "conference": "American",
+      "nil_budget": 5000000,
+      "tier": "Low",
+      "scraped_at": "2025-10-27T09:14:15.273972",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Memphis",
+      "conference": "American",
+      "nil_budget": 4000000,
+      "tier": "Low",
+      "scraped_at": "2025-10-27T09:14:15.273973",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "SEC Average",
+      "conference": "SEC",
+      "nil_budget": 13290000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273975",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Big Ten Average",
+      "conference": "Big Ten",
+      "nil_budget": 10690000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273975",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Big 12 Average",
+      "conference": "Big 12",
+      "nil_budget": 9500000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273976",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "ACC Average",
+      "conference": "ACC",
+      "nil_budget": 8800000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273977",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Pac-12 Average",
+      "conference": "Pac-12",
+      "nil_budget": 8500000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273978",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "American Average",
+      "conference": "American",
+      "nil_budget": 4000000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273979",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Mountain West Average",
+      "conference": "Mountain West",
+      "nil_budget": 2500000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273982",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "Sun Belt Average",
+      "conference": "Sun Belt",
+      "nil_budget": 2000000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273983",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "MAC Average",
+      "conference": "MAC",
+      "nil_budget": 1500000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273993",
+      "source": "2023 NIL Collective Research"
+    },
+    {
+      "team": "C-USA Average",
+      "conference": "C-USA",
+      "nil_budget": 1200000,
+      "tier": "Average",
+      "is_average": true,
+      "scraped_at": "2025-10-27T09:14:15.273994",
+      "source": "2023 NIL Collective Research"
+    }
+  ]
+}

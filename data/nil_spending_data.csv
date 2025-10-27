@@ -1,0 +1,42 @@
+team,conference,nil_budget,tier
+Texas,SEC,20000000,Elite
+Texas A&M,SEC,18000000,Elite
+Alabama,SEC,17000000,Elite
+Georgia,SEC,16000000,Elite
+Ohio State,Big Ten,16000000,Elite
+LSU,SEC,15000000,Elite
+Florida,SEC,14000000,High
+Michigan,Big Ten,14000000,Elite
+SEC Average,SEC,13290000,Average
+Oklahoma,Big 12,13000000,High
+Penn State,Big Ten,13000000,High
+Tennessee,SEC,13000000,High
+Auburn,SEC,12000000,High
+Ole Miss,SEC,12000000,High
+Oregon,Big Ten,12000000,High
+Miami,ACC,12000000,High
+USC,Big Ten,12000000,High
+Clemson,ACC,11000000,High
+Nebraska,Big Ten,11000000,High
+Texas Tech,Big 12,11000000,High
+Arkansas,SEC,11000000,High
+Big Ten Average,Big Ten,10690000,Average
+Florida State,ACC,10000000,Medium
+Wisconsin,Big Ten,10000000,Medium
+Big 12 Average,Big 12,9500000,Average
+North Carolina,ACC,9000000,Medium
+Oklahoma State,Big 12,9000000,Medium
+Iowa,Big Ten,9000000,Medium
+ACC Average,ACC,8800000,Average
+Pac-12 Average,Pac-12,8500000,Average
+TCU,Big 12,8500000,Medium
+Kansas State,Big 12,7500000,Medium
+NC State,ACC,7500000,Medium
+SMU,American,5000000,Low
+Boise State,Mountain West,4000000,Low
+Memphis,American,4000000,Low
+American Average,American,4000000,Average
+Mountain West Average,Mountain West,2500000,Average
+Sun Belt Average,Sun Belt,2000000,Average
+MAC Average,MAC,1500000,Average
+C-USA Average,C-USA,1200000,Average

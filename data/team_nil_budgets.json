@@ -1,0 +1,207 @@
+{
+  "Texas": {
+    "nil_budget": 20000000,
+    "conference": "SEC",
+    "tier": "Elite"
+  },
+  "Texas A&M": {
+    "nil_budget": 18000000,
+    "conference": "SEC",
+    "tier": "Elite"
+  },
+  "Alabama": {
+    "nil_budget": 17000000,
+    "conference": "SEC",
+    "tier": "Elite"
+  },
+  "Georgia": {
+    "nil_budget": 16000000,
+    "conference": "SEC",
+    "tier": "Elite"
+  },
+  "LSU": {
+    "nil_budget": 15000000,
+    "conference": "SEC",
+    "tier": "Elite"
+  },
+  "Florida": {
+    "nil_budget": 14000000,
+    "conference": "SEC",
+    "tier": "High"
+  },
+  "Tennessee": {
+    "nil_budget": 13000000,
+    "conference": "SEC",
+    "tier": "High"
+  },
+  "Auburn": {
+    "nil_budget": 12000000,
+    "conference": "SEC",
+    "tier": "High"
+  },
+  "Ole Miss": {
+    "nil_budget": 12000000,
+    "conference": "SEC",
+    "tier": "High"
+  },
+  "Arkansas": {
+    "nil_budget": 11000000,
+    "conference": "SEC",
+    "tier": "High"
+  },
+  "Ohio State": {
+    "nil_budget": 16000000,
+    "conference": "Big Ten",
+    "tier": "Elite"
+  },
+  "Michigan": {
+    "nil_budget": 14000000,
+    "conference": "Big Ten",
+    "tier": "Elite"
+  },
+  "Penn State": {
+    "nil_budget": 13000000,
+    "conference": "Big Ten",
+    "tier": "High"
+  },
+  "USC": {
+    "nil_budget": 12000000,
+    "conference": "Big Ten",
+    "tier": "High"
+  },
+  "Oregon": {
+    "nil_budget": 12000000,
+    "conference": "Big Ten",
+    "tier": "High"
+  },
+  "Nebraska": {
+    "nil_budget": 11000000,
+    "conference": "Big Ten",
+    "tier": "High"
+  },
+  "Wisconsin": {
+    "nil_budget": 10000000,
+    "conference": "Big Ten",
+    "tier": "Medium"
+  },
+  "Iowa": {
+    "nil_budget": 9000000,
+    "conference": "Big Ten",
+    "tier": "Medium"
+  },
+  "Oklahoma": {
+    "nil_budget": 13000000,
+    "conference": "Big 12",
+    "tier": "High"
+  },
+  "Texas Tech": {
+    "nil_budget": 11000000,
+    "conference": "Big 12",
+    "tier": "High"
+  },
+  "Oklahoma State": {
+    "nil_budget": 9000000,
+    "conference": "Big 12",
+    "tier": "Medium"
+  },
+  "TCU": {
+    "nil_budget": 8500000,
+    "conference": "Big 12",
+    "tier": "Medium"
+  },
+  "Kansas State": {
+    "nil_budget": 7500000,
+    "conference": "Big 12",
+    "tier": "Medium"
+  },
+  "Miami": {
+    "nil_budget": 12000000,
+    "conference": "ACC",
+    "tier": "High"
+  },
+  "Clemson": {
+    "nil_budget": 11000000,
+    "conference": "ACC",
+    "tier": "High"
+  },
+  "Florida State": {
+    "nil_budget": 10000000,
+    "conference": "ACC",
+    "tier": "Medium"
+  },
+  "North Carolina": {
+    "nil_budget": 9000000,
+    "conference": "ACC",
+    "tier": "Medium"
+  },
+  "NC State": {
+    "nil_budget": 7500000,
+    "conference": "ACC",
+    "tier": "Medium"
+  },
+  "Boise State": {
+    "nil_budget": 4000000,
+    "conference": "Mountain West",
+    "tier": "Low"
+  },
+  "SMU": {
+    "nil_budget": 5000000,
+    "conference": "American",
+    "tier": "Low"
+  },
+  "Memphis": {
+    "nil_budget": 4000000,
+    "conference": "American",
+    "tier": "Low"
+  },
+  "SEC Average": {
+    "nil_budget": 13290000,
+    "conference": "SEC",
+    "tier": "Average"
+  },
+  "Big Ten Average": {
+    "nil_budget": 10690000,
+    "conference": "Big Ten",
+    "tier": "Average"
+  },
+  "Big 12 Average": {
+    "nil_budget": 9500000,
+    "conference": "Big 12",
+    "tier": "Average"
+  },
+  "ACC Average": {
+    "nil_budget": 8800000,
+    "conference": "ACC",
+    "tier": "Average"
+  },
+  "Pac-12 Average": {
+    "nil_budget": 8500000,
+    "conference": "Pac-12",
+    "tier": "Average"
+  },
+  "American Average": {
+    "nil_budget": 4000000,
+    "conference": "American",
+    "tier": "Average"
+  },
+  "Mountain West Average": {
+    "nil_budget": 2500000,
+    "conference": "Mountain West",
+    "tier": "Average"
+  },
+  "Sun Belt Average": {
+    "nil_budget": 2000000,
+    "conference": "Sun Belt",
+    "tier": "Average"
+  },
+  "MAC Average": {
+    "nil_budget": 1500000,
+    "conference": "MAC",
+    "tier": "Average"
+  },
+  "C-USA Average": {
+    "nil_budget": 1200000,
+    "conference": "C-USA",
+    "tier": "Average"
+  }
+}
