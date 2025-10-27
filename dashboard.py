@@ -706,7 +706,8 @@ elif page == "👥 Player Database":
             st.metric("Players Found", f"{len(filtered_df):,}")
         with col2:
             if not filtered_df.empty:
-                st.metric("Avg Value", f"${filtered_df['total_score'].mean()/1e3:.0f}K")
+                value_col = 'player_value' if 'player_value' in filtered_df.columns else 'total_score'
+                st.metric("Avg Value", f"${filtered_df[value_col].mean()/1e3:.0f}K")
         with col3:
             if not filtered_df.empty:
                 st.metric("Total Value", f"${filtered_df['total_score'].sum()/1e6:.1f}M")
