@@ -38,63 +38,93 @@ if 'sport' not in st.session_state:
 # UNTITLED UI DESIGN SYSTEM
 # ============================================================================
 
-# Color Palette (UntitledUI inspired)
+# Professional Navy/Electric Blue Design System
 COLORS = {
-    'primary': '#7F56D9',      # Purple
-    'primary_light': '#9E77ED',
-    'primary_dark': '#6941C6',
-    'success': '#12B76A',
-    'warning': '#F79009',
-    'error': '#F04438',
-    'gray_50': '#F9FAFB',
-    'gray_100': '#F3F4F6',
-    'gray_200': '#E5E7EB',
-    'gray_300': '#D1D5DB',
-    'gray_400': '#9CA3AF',
-    'gray_500': '#6B7280',
-    'gray_600': '#4B5563',
-    'gray_700': '#374151',
-    'gray_800': '#1F2937',
-    'gray_900': '#111827',
+    'primary': '#002147',      # Navy Blue - Trust, professionalism
+    'primary_light': '#003366',
+    'primary_dark': '#001529',
+    'accent': '#0066FF',       # Electric Blue - Action, highlights
+    'accent_light': '#3385FF',
+    'success': '#00C853',      # Green - Good value, positive
+    'warning': '#FFC107',      # Amber - Caution, potential
+    'error': '#D32F2F',        # Red - Alert, risk
+    'neutral': '#757575',      # Gray - Neutral info
+    'gray_50': '#FFFFFF',      # White - Clean background
+    'gray_100': '#F5F5F5',     # Light Gray - Secondary surfaces
+    'gray_200': '#E0E0E0',
+    'gray_300': '#BDBDBD',
+    'gray_400': '#9E9E9E',
+    'gray_500': '#757575',
+    'gray_600': '#616161',
+    'gray_700': '#424242',
+    'gray_800': '#212121',
+    'gray_900': '#0A1628',     # Dark mode navy
+    'info': '#0066FF',         # Electric Blue for info
 }
 
-# Custom CSS - UntitledUI Design
+# Custom CSS - Professional Navy/Electric Blue Design
 st.markdown(f"""
 <style>
+    /* Import Professional Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    
     /* Global Styles */
     .main {{
         background-color: {COLORS['gray_50']};
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }}
     
-    /* Typography */
+    /* Typography Hierarchy */
     .display-xl {{
-        font-size: 3.75rem;
-        font-weight: 700;
+        font-family: 'Inter', sans-serif;
+        font-size: 32px;
+        font-weight: 800;
         line-height: 1.2;
-        color: {COLORS['gray_900']};
+        color: {COLORS['primary']};
     }}
     
     .display-lg {{
-        font-size: 3rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 28px;
         font-weight: 700;
         line-height: 1.2;
-        color: {COLORS['gray_900']};
+        color: {COLORS['primary']};
     }}
     
     .text-xl {{
-        font-size: 1.25rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
         font-weight: 600;
-        color: {COLORS['gray_700']};
+        color: {COLORS['gray_800']};
     }}
     
     .text-md {{
-        font-size: 1rem;
-        color: {COLORS['gray_600']};
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: {COLORS['gray_700']};
     }}
     
     .text-sm {{
-        font-size: 0.875rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        color: {COLORS['gray_600']};
+    }}
+    
+    .text-xs {{
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
         color: {COLORS['gray_500']};
+    }}
+    
+    /* Data/Numbers - Monospace for alignment */
+    .data-number {{
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
     }}
     
     /* Cards */
