@@ -261,10 +261,15 @@ st.markdown(f"""
 # ============================================================================
 
 @st.cache_data(ttl=300)
-def load_valuations():
+def load_valuations(sport='football'):
     """Load all player valuations"""
     try:
-        with open('outputs/valuations/all_valuations_2023.json', 'r') as f:
+        if sport == 'basketball':
+            filepath = 'outputs/valuations/all_basketball_valuations_2023.json'
+        else:
+            filepath = 'outputs/valuations/all_valuations_2023.json'
+        
+        with open(filepath, 'r') as f:
             data = json.load(f)
             return pd.DataFrame(data['valuations'])
     except:
