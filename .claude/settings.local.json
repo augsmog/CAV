@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python test_ensemble_valuation.py:*)",
+      "Bash(python:*)",
+      "Bash(copy test_ensemble_valuation_fixed.py test_ensemble_valuation.py /Y)",
+      "Bash(cp:*)",
+      "Bash(cmd /c \"restart_dashboard.bat\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
