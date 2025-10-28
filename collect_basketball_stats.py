@@ -129,36 +129,45 @@ for season in seasons:
             ).first()
             
             # Prepare stat data - using correct field names from model
+            # Extract nested dict values safely
+            field_goals = stat_record.get('fieldGoals', {}) or {}
+            three_pts = stat_record.get('threePointFieldGoals', {}) or {}
+            free_throws = stat_record.get('freeThrows', {}) or {}
+            rebounds = stat_record.get('rebounds', {}) or {}
+            win_shares = stat_record.get('winShares', {}) or {}
+            
             stat_data = {
                 'player_id': player.id,
                 'season': season,
                 'games_played': stat_record.get('games', 0),
                 'games_started': stat_record.get('starts', 0),
-                'minutes': stat_record.get('minutes', 0.0),
-                'pts': stat_record.get('points', 0.0),
-                'reb': stat_record.get('rebounds', {}).get('total', 0.0) if isinstance(stat_record.get('rebounds'), dict) else stat_record.get('rebounds', 0.0),
-                'ast': stat_record.get('assists', 0.0),
-                'stl': stat_record.get('steals', 0.0),
-                'blk': stat_record.get('blocks', 0.0),
-                'tov': stat_record.get('turnovers', 0.0),
-                'pf': stat_record.get('fouls', 0.0),
+                'minutes': float(stat_record.get('minutes') or 0.0),
+                'pts': float(stat_record.get('points') or 0.0),
+                'reb': float(rebounds.get('total', 0.0)) if isinstance(rebounds, dict) else 0.0,
+                'oreb': float(rebounds.get('offensive', 0.0)) if isinstance(rebounds, dict) else 0.0,
+                'dreb': float(rebounds.get('defensive', 0.0)) if isinstance(rebounds, dict) else 0.0,
+                'ast': float(stat_record.get('assists', 0.0)) if stat_record.get('assists') else 0.0,
+                'stl': float(stat_record.get('steals', 0.0)) if stat_record.get('steals') else 0.0,
+                'blk': float(stat_record.get('blocks', 0.0)) if stat_record.get('blocks') else 0.0,
+                'tov': float(stat_record.get('turnovers', 0.0)) if stat_record.get('turnovers') else 0.0,
+                'pf': float(stat_record.get('fouls', 0.0)) if stat_record.get('fouls') else 0.0,
                 # Shooting stats
-                'fgm': stat_record.get('fieldGoals', {}).get('made', 0.0) if isinstance(stat_record.get('fieldGoals'), dict) else 0.0,
-                'fga': stat_record.get('fieldGoals', {}).get('attempted', 0.0) if isinstance(stat_record.get('fieldGoals'), dict) else 0.0,
-                'fg_pct': stat_record.get('fieldGoals', {}).get('pct', 0.0) if isinstance(stat_record.get('fieldGoals'), dict) else 0.0,
-                'tpm': stat_record.get('threePointFieldGoals', {}).get('made', 0.0) if isinstance(stat_record.get('threePointFieldGoals'), dict) else 0.0,
-                'tpa': stat_record.get('threePointFieldGoals', {}).get('attempted', 0.0) if isinstance(stat_record.get('threePointFieldGoals'), dict) else 0.0,
-                'tp_pct': stat_record.get('threePointFieldGoals', {}).get('pct', 0.0) if isinstance(stat_record.get('threePointFieldGoals'), dict) else 0.0,
-                'ftm': stat_record.get('freeThrows', {}).get('made', 0.0) if isinstance(stat_record.get('freeThrows'), dict) else 0.0,
-                'fta': stat_record.get('freeThrows', {}).get('attempted', 0.0) if isinstance(stat_record.get('freeThrows'), dict) else 0.0,
-                'ft_pct': stat_record.get('freeThrows', {}).get('pct', 0.0) if isinstance(stat_record.get('freeThrows'), dict) else 0.0,
+                'fgm': float(field_goals.get('made', 0.0)) if isinstance(field_goals, dict) else 0.0,
+                'fga': float(field_goals.get('attempted', 0.0)) if isinstance(field_goals, dict) else 0.0,
+                'fg_pct': float(field_goals.get('pct', 0.0)) if isinstance(field_goals, dict) else 0.0,
+                'tpm': float(three_pts.get('made', 0.0)) if isinstance(three_pts, dict) else 0.0,
+                'tpa': float(three_pts.get('attempted', 0.0)) if isinstance(three_pts, dict) else 0.0,
+                'tp_pct': float(three_pts.get('pct', 0.0)) if isinstance(three_pts, dict) else 0.0,
+                'ftm': float(free_throws.get('made', 0.0)) if isinstance(free_throws, dict) else 0.0,
+                'fta': float(free_throws.get('attempted', 0.0)) if isinstance(free_throws, dict) else 0.0,
+                'ft_pct': float(free_throws.get('pct', 0.0)) if isinstance(free_throws, dict) else 0.0,
                 # Advanced stats
-                'per': stat_record.get('per'),
-                'usage_rate': stat_record.get('usage', 0.0),
-                'ortg': stat_record.get('offensiveRating'),
-                'drtg': stat_record.get('defensiveRating'),
-                'ws': stat_record.get('winShares'),
-                'bpm': stat_record.get('bpm')
+                'per': float(stat_record.get('per', 0.0)) if stat_record.get('per') else None,
+                'usage_rate': float(stat_record.get('usage', 0.0)) if stat_record.get('usage') else 0.0,
+                'ortg': float(stat_record.get('offensiveRating', 0.0)) if stat_record.get('offensiveRating') else None,
+                'drtg': float(stat_record.get('defensiveRating', 0.0)) if stat_record.get('defensiveRating') else None,
+                'ws': float(win_shares.get('total', 0.0)) if isinstance(win_shares, dict) else None,
+                'bpm': float(stat_record.get('bpm', 0.0)) if stat_record.get('bpm') else None
             }
             
             if existing_stat:

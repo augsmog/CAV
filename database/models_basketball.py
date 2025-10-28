@@ -72,39 +72,43 @@ class BasketballPerformanceStat(Base):
     # Basic counting stats
     games_played = Column(Integer)
     games_started = Column(Integer)
-    minutes_per_game = Column(Float)
+    minutes = Column(Float)
     
     # Scoring
-    points_per_game = Column(Float)
-    field_goals_made = Column(Float)
-    field_goals_attempted = Column(Float)
-    field_goal_percentage = Column(Float)
-    three_pointers_made = Column(Float)
-    three_pointers_attempted = Column(Float)
-    three_point_percentage = Column(Float)
-    free_throws_made = Column(Float)
-    free_throws_attempted = Column(Float)
-    free_throw_percentage = Column(Float)
+    pts = Column(Float)
+    fgm = Column(Float)
+    fga = Column(Float)
+    fg_pct = Column(Float)
+    tpm = Column(Float)
+    tpa = Column(Float)
+    tp_pct = Column(Float)
+    ftm = Column(Float)
+    fta = Column(Float)
+    ft_pct = Column(Float)
     
     # Rebounds
-    rebounds_per_game = Column(Float)
-    offensive_rebounds = Column(Float)
-    defensive_rebounds = Column(Float)
+    reb = Column(Float)
+    oreb = Column(Float)
+    dreb = Column(Float)
     
     # Other stats
-    assists_per_game = Column(Float)
-    steals_per_game = Column(Float)
-    blocks_per_game = Column(Float)
-    turnovers_per_game = Column(Float)
-    fouls_per_game = Column(Float)
+    ast = Column(Float)
+    stl = Column(Float)
+    blk = Column(Float)
+    tov = Column(Float)
+    pf = Column(Float)
     
     # Advanced metrics
-    player_efficiency_rating = Column(Float)  # PER
-    true_shooting_percentage = Column(Float)  # TS%
+    per = Column(Float)  # Player Efficiency Rating
+    ts_pct = Column(Float)  # True Shooting %
     usage_rate = Column(Float)
     assist_percentage = Column(Float)
     rebound_percentage = Column(Float)
     turnover_percentage = Column(Float)
+    ortg = Column(Float)  # Offensive Rating
+    drtg = Column(Float)  # Defensive Rating
+    ws = Column(Float)  # Win Shares
+    bpm = Column(Float)  # Box Plus-Minus
     
     # Raw stats (JSON for flexibility)
     raw_stats = Column(JSON)
