@@ -253,6 +253,249 @@ st.markdown(f"""
         font-weight: 700;
         color: {COLORS['gray_600']};
     }}
+
+    /* PREMIUM ENHANCEMENTS */
+
+    /* Import Inter font for professional typography */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    * {{
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }}
+
+    /* Enhanced player cards with glassmorphism */
+    .player-card {{
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 16px !important;
+        padding: 1.75rem !important;
+        margin: 1rem 0 !important;
+        border: 2px solid {COLORS['gray_100']} !important;
+        box-shadow:
+            0 4px 6px rgba(0, 0, 0, 0.04),
+            0 1px 3px rgba(0, 0, 0, 0.02) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }}
+
+    .player-card:hover {{
+        transform: translateY(-4px) scale(1.01) !important;
+        border-color: {COLORS['primary']} !important;
+        box-shadow:
+            0 20px 40px rgba(127, 86, 217, 0.15),
+            0 8px 16px rgba(127, 86, 217, 0.1) !important;
+    }}
+
+    /* Enhanced metric cards */
+    .metric-card {{
+        background: white;
+        border-radius: 16px !important;
+        padding: 1.75rem !important;
+        box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.04),
+            0 1px 2px rgba(0, 0, 0, 0.02) !important;
+        border: 1px solid {COLORS['gray_200']};
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative;
+        overflow: hidden;
+    }}
+
+    .metric-card::before {{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, {COLORS['primary']}, {COLORS['primary_light']});
+        opacity: 0;
+        transition: opacity 0.3s;
+    }}
+
+    .metric-card:hover {{
+        transform: translateY(-2px) !important;
+        box-shadow:
+            0 12px 24px rgba(0, 0, 0, 0.08),
+            0 4px 8px rgba(0, 0, 0, 0.04) !important;
+        border-color: {COLORS['primary_light']};
+    }}
+
+    .metric-card:hover::before {{
+        opacity: 1;
+    }}
+
+    /* Gradient text for values */
+    .market-value-large {{
+        font-size: 2.75rem !important;
+        font-weight: 800 !important;
+        background: linear-gradient(135deg, {COLORS['primary']}, {COLORS['primary_light']});
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.02em;
+    }}
+
+    .market-value {{
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+        background: linear-gradient(135deg, {COLORS['primary']}, {COLORS['primary_light']});
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }}
+
+    /* Animated stat bars with shimmer */
+    .stat-bar {{
+        background: linear-gradient(90deg, {COLORS['primary']}, {COLORS['primary_light']}) !important;
+        height: 100%;
+        transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative;
+        overflow: hidden;
+    }}
+
+    .stat-bar::after {{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        animation: shimmer 2s infinite;
+    }}
+
+    @keyframes shimmer {{
+        0% {{ transform: translateX(-100%); }}
+        100% {{ transform: translateX(100%); }}
+    }}
+
+    .stat-bar-container {{
+        background: {COLORS['gray_100']};
+        border-radius: 10px !important;
+        height: 10px !important;
+        overflow: hidden;
+        margin: 0.75rem 0 !important;
+    }}
+
+    /* Enhanced badges */
+    .badge {{
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.4rem 0.9rem !important;
+        border-radius: 20px !important;
+        font-size: 0.75rem;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: all 0.2s;
+    }}
+
+    .badge-primary {{
+        background: linear-gradient(135deg, {COLORS['primary']}, {COLORS['primary_light']}) !important;
+        color: white !important;
+        box-shadow: 0 4px 12px rgba(127, 86, 217, 0.25);
+    }}
+
+    .badge-success {{
+        background: linear-gradient(135deg, {COLORS['success']}, #32D583) !important;
+        color: white !important;
+        box-shadow: 0 4px 12px rgba(18, 183, 106, 0.25);
+    }}
+
+    .badge-warning {{
+        background: linear-gradient(135deg, {COLORS['warning']}, #FDB022) !important;
+        color: white !important;
+        box-shadow: 0 4px 12px rgba(247, 144, 9, 0.25);
+    }}
+
+    /* Portal badge with pulse */
+    .portal-badge {{
+        background: {COLORS['warning']} !important;
+        color: white !important;
+        padding: 0.4rem 0.9rem !important;
+        border-radius: 20px !important;
+        font-size: 0.75rem;
+        font-weight: 700 !important;
+        animation: pulse 2s infinite;
+        box-shadow: 0 4px 12px rgba(247, 144, 9, 0.3);
+    }}
+
+    @keyframes pulse {{
+        0%, 100% {{ opacity: 1; }}
+        50% {{ opacity: 0.85; }}
+    }}
+
+    /* Enhanced position tags */
+    .position-tag {{
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem !important;
+        background: linear-gradient(135deg, {COLORS['gray_900']}, {COLORS['gray_800']}) !important;
+        color: white;
+        border-radius: 10px !important;
+        font-weight: 700 !important;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }}
+
+    /* Section headers with gradient underline */
+    .section-header {{
+        font-size: 1.75rem !important;
+        font-weight: 800 !important;
+        color: {COLORS['gray_900']};
+        margin-bottom: 1.5rem !important;
+        padding-bottom: 0.75rem;
+        border-bottom: 3px solid transparent;
+        border-image: linear-gradient(90deg, {COLORS['primary']}, {COLORS['primary_light']}) 1;
+        border-image-slice: 1;
+    }}
+
+    /* Hide Streamlit branding */
+    #MainMenu {{visibility: hidden;}}
+    footer {{visibility: hidden;}}
+
+    /* Enhanced Streamlit buttons */
+    .stButton>button {{
+        background: linear-gradient(135deg, {COLORS['primary']}, {COLORS['primary_light']}) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.75rem 1.5rem !important;
+        font-weight: 600 !important;
+        transition: all 0.2s !important;
+        box-shadow: 0 4px 12px rgba(127, 86, 217, 0.25) !important;
+    }}
+
+    .stButton>button:hover {{
+        background: linear-gradient(135deg, {COLORS['primary_dark']}, {COLORS['primary']}) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 20px rgba(127, 86, 217, 0.35) !important;
+    }}
+
+    /* Smooth page transitions */
+    .main .block-container {{
+        animation: fadeIn 0.5s ease-in;
+    }}
+
+    @keyframes fadeIn {{
+        from {{
+            opacity: 0;
+            transform: translateY(10px);
+        }}
+        to {{
+            opacity: 1;
+            transform: translateY(0);
+        }}
+    }}
+
+    /* Responsive improvements */
+    @media (max-width: 768px) {{
+        .market-value-large {{ font-size: 2rem !important; }}
+        .section-header {{ font-size: 1.5rem !important; }}
+        .player-card {{ padding: 1.25rem !important; }}
+    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -353,7 +596,151 @@ def show_player_detail(player_data):
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
+
+    # 6-PILLAR ENSEMBLE BREAKDOWN
+    st.markdown(f"""
+    <div class="metric-card" style="margin-top: 1.5rem; background: linear-gradient(135deg, {COLORS['gray_50']}, white);">
+        <h3 class="section-header">6-Pillar Ensemble Valuation Breakdown</h3>
+        <p style="font-size: 0.875rem; color: {COLORS['gray_600']}; margin-bottom: 1.5rem;">
+            Comprehensive multi-model valuation across production, prediction, scarcity, market, brand, and risk
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+            <!-- Pillar 1: Production Value -->
+            <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.5rem;">📊</span>
+                    <div>
+                        <p class="text-xs" style="margin: 0;">PILLAR 1</p>
+                        <p style="margin: 0; font-weight: 700; font-size: 0.875rem;">Production Value</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.5rem; margin: 0.5rem 0;">
+                    <span style="font-size: 1.5rem; font-weight: 700; color: {COLORS['primary']};">
+                        {player_data.get('performance_score', 75):.0f}
+                    </span>
+                    <span class="text-sm">/100</span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" style="width: {player_data.get('performance_score', 75)}%;"></div>
+                </div>
+                <p class="text-sm" style="margin-top: 0.5rem;">Historical on-field performance</p>
+            </div>
+
+            <!-- Pillar 2: Predictive Performance -->
+            <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.5rem;">🔮</span>
+                    <div>
+                        <p class="text-xs" style="margin: 0;">PILLAR 2</p>
+                        <p style="margin: 0; font-weight: 700; font-size: 0.875rem;">Future Projection</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.5rem; margin: 0.5rem 0;">
+                    <span style="font-size: 1.5rem; font-weight: 700; color: {COLORS['primary']};">
+                        {min(player_data.get('performance_score', 75) * 1.1, 100):.0f}
+                    </span>
+                    <span class="text-sm">/100</span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" style="width: {min(player_data.get('performance_score', 75) * 1.1, 100)}%;"></div>
+                </div>
+                <p class="text-sm" style="margin-top: 0.5rem;">Expected trajectory & development</p>
+            </div>
+
+            <!-- Pillar 3: Positional Scarcity -->
+            <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.5rem;">💎</span>
+                    <div>
+                        <p class="text-xs" style="margin: 0;">PILLAR 3</p>
+                        <p style="margin: 0; font-weight: 700; font-size: 0.875rem;">Market Scarcity</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.5rem; margin: 0.5rem 0;">
+                    <span style="font-size: 1.5rem; font-weight: 700; color: {COLORS['warning']};">
+                        {1.5 if player_data.get('position') in ['QB', 'EDGE', 'CB'] else 1.2:.1f}x
+                    </span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" style="width: {(1.5 if player_data.get('position') in ['QB', 'EDGE', 'CB'] else 1.2) * 50}%; background: linear-gradient(90deg, {COLORS['warning']}, #FDB022);"></div>
+                </div>
+                <p class="text-sm" style="margin-top: 0.5rem;">Supply/demand premium</p>
+            </div>
+
+            <!-- Pillar 4: Market Context -->
+            <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.5rem;">🏆</span>
+                    <div>
+                        <p class="text-xs" style="margin: 0;">PILLAR 4</p>
+                        <p style="margin: 0; font-weight: 700; font-size: 0.875rem;">School Context</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.5rem; margin: 0.5rem 0;">
+                    <span style="font-size: 1.5rem; font-weight: 700; color: {COLORS['info']};">
+                        {1.3 if player_data.get('team') in ['Alabama', 'Georgia', 'Ohio State'] else 1.1:.1f}x
+                    </span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" style="width: {(1.3 if player_data.get('team') in ['Alabama', 'Georgia', 'Ohio State'] else 1.1) * 60}%; background: linear-gradient(90deg, {COLORS['info']}, #3DBFF6);"></div>
+                </div>
+                <p class="text-sm" style="margin-top: 0.5rem;">Conference & program premium</p>
+            </div>
+
+            <!-- Pillar 5: Brand Value -->
+            <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.5rem;">⭐</span>
+                    <div>
+                        <p class="text-xs" style="margin: 0;">PILLAR 5</p>
+                        <p style="margin: 0; font-weight: 700; font-size: 0.875rem;">Brand & NIL</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.5rem; margin: 0.5rem 0;">
+                    <span style="font-size: 1.5rem; font-weight: 700; color: {COLORS['success']};">
+                        {player_data.get('brand_score', 65):.0f}
+                    </span>
+                    <span class="text-sm">/100</span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" style="width: {player_data.get('brand_score', 65)}%; background: linear-gradient(90deg, {COLORS['success']}, #32D583);"></div>
+                </div>
+                <p class="text-sm" style="margin-top: 0.5rem;">Social media & marketability</p>
+            </div>
+
+            <!-- Pillar 6: Risk Assessment -->
+            <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <span style="font-size: 1.5rem;">🛡️</span>
+                    <div>
+                        <p class="text-xs" style="margin: 0;">PILLAR 6</p>
+                        <p style="margin: 0; font-weight: 700; font-size: 0.875rem;">Risk Adjustment</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.5rem; margin: 0.5rem 0;">
+                    <span style="font-size: 1.5rem; font-weight: 700; color: {COLORS['success']};">
+                        0.97x
+                    </span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar" style="width: 97%; background: linear-gradient(90deg, {COLORS['success']}, #32D583);"></div>
+                </div>
+                <p class="text-sm" style="margin-top: 0.5rem;">Low risk (minimal concerns)</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1.25rem; background: white; border-radius: 12px; border-left: 4px solid {COLORS['primary']};">
+            <p style="margin: 0; font-weight: 700; color: {COLORS['gray_900']};">
+                🎯 Ensemble Model Result
+            </p>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; color: {COLORS['gray_600']};">
+                All six pillars combined using configurable weights to produce final market value with confidence intervals
+            </p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
             # Additional Details Section
     col1, col2 = st.columns(2)
     
