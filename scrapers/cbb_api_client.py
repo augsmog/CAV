@@ -127,7 +127,7 @@ class CollegeBasketballDataAPI:
         """
         logger.info(f"Fetching player stats for {year} season...")
         
-        params = {'year': year}
+        params = {'season': year}  # Changed from 'year' to 'season'
         if team:
             params['team'] = team
         if stat_category:
