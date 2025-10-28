@@ -268,13 +268,13 @@ class CollegeBasketballDataAPI:
             # Try to fetch current teams
             teams = self.get_teams()
             if teams:
-                logger.info(f"✓ API connection successful! Found {len(teams)} teams")
+                logger.info(f"[SUCCESS] API connection successful! Found {len(teams)} teams")
                 return True
             else:
-                logger.warning("⚠ API connected but no data returned")
+                logger.warning("[WARNING] API connected but no data returned")
                 return False
         except Exception as e:
-            logger.error(f"✗ API connection failed: {e}")
+            logger.error(f"[ERROR] API connection failed: {e}")
             return False
 
 
@@ -286,7 +286,7 @@ def main():
     project_root = Path(__file__).parent.parent
     sys.path.insert(0, str(project_root))
     
-    from config import load_config
+    import yaml
     
     print("="*80)
     print("COLLEGE BASKETBALL DATA API TEST")
@@ -294,8 +294,10 @@ def main():
     print()
     
     # Load config
-    config = load_config()
-    api_key = config.get('basketball_api', {}).get('api_key')
+    config_path = project_root / 'config' / 'config.yaml'
+    with open(config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    api_key = config.get('collegebasketballdata', {}).get('api_key', '')
     
     if not api_key:
         print("[ERROR] No API key found in config/config.yaml")
@@ -320,7 +322,7 @@ def main():
     print("\n1. Fetching teams...")
     teams = client.get_teams(year=2024)
     if teams:
-        print(f"   ✓ Found {len(teams)} teams")
+        print(f"   [OK] Found {len(teams)} teams")
         print(f"   Sample: {teams[0].get('school', 'N/A')}")
     
     # Test roster (using first team)
@@ -329,7 +331,7 @@ def main():
         first_team = teams[0].get('school', teams[0].get('team'))
         roster = client.get_team_roster(first_team, year=2024)
         if roster:
-            print(f"   ✓ Found {len(roster)} players on {first_team}")
+            print(f"   [OK] Found {len(roster)} players on {first_team}")
             if roster:
                 player = roster[0]
                 print(f"   Sample: {player.get('name', 'N/A')} - {player.get('position', 'N/A')}")
@@ -338,7 +340,7 @@ def main():
     print("\n3. Fetching player stats...")
     stats = client.get_player_season_stats(2024)
     if stats:
-        print(f"   ✓ Found {len(stats)} stat records")
+        print(f"   [OK] Found {len(stats)} stat records")
         if stats:
             print(f"   Sample: {stats[0].get('player', 'N/A')} - {stats[0].get('team', 'N/A')}")
     
