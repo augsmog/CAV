@@ -589,7 +589,8 @@ st.sidebar.markdown(f"""
 # LOAD DATA
 # ============================================================================
 
-valuations_df = load_valuations()
+current_sport = st.session_state.get('sport', 'football')
+valuations_df = load_valuations(sport=current_sport)
 portal_ids = load_portal_players()
 
 # ============================================================================
