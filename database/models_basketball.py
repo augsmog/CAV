@@ -33,6 +33,7 @@ class BasketballPlayer(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     team_id = Column(Integer, ForeignKey('basketball_teams.id'))
+    season = Column(Integer, nullable=False)  # Season year (e.g., 2023)
     
     # Player info
     position = Column(String)  # PG, SG, SF, PF, C
